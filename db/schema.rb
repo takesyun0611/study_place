@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(version: 2020_08_16_133007) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "losts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.string "discovery_day", null: false
+    t.string "discovery_place", null: false
+    t.string "postal_code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "place", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_losts_on_category_id"
+    t.index ["user_id"], name: "index_losts_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
