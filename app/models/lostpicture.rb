@@ -1,0 +1,2 @@
+class Lostpicture < ApplicationRecord
+end
